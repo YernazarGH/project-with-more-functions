@@ -13,8 +13,8 @@ window.addEventListener('DOMContentLoaded', function(){
 
     function showTabsContent(b) {   // ф-я для показа табов
         if(tabContent[b].classList.contains('hide')) {
-            tabContent[i].classList.remove('hide');
-            tabContent[i].classList.add('show');
+            tabContent[b].classList.remove('hide');
+            tabContent[b].classList.add('show');
         };
     };
 
