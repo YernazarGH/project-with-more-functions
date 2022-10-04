@@ -17,8 +17,7 @@
 let btn = document.querySelector('.btn'),
     box = document.querySelector('.box');
 
-function myAnimation () {   // box move dioganal'
-    console.log('click');
+function myAnimation () {   // перемещения бокса по диоганали
     let pos = 0;
     let id = setInterval(frame, 10);
     function frame () {
