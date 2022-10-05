@@ -1,0 +1,52 @@
+body {
+    background: black;
+}
+.wrapper {
+    width: max-content;
+    height: max-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: auto;
+}
+.wrapper h3{
+    font-size: 24px;
+    color: goldenrod;
+}
+
+
+.timer-block  {
+    display: flex;
+    flex-direction: row;
+    font-size: 60px;
+    color: goldenrod;
+}
+.timer-block p {
+    margin: 0;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+button {
+    padding: 10px 40px 10px 40px;
+    font-size: 18px;
+    border: solid 2px goldenrod;
+    background-color: black;
+    color: goldenrod;
+}
+button:hover {
+    background-color: goldenrod;
+    color: black;
+    transition: 0.3s ease-in;
+}
+hr {
+    border:none;
+    color: goldenrod;
+    background-color:goldenrod;
+    height: 1px;
+    width: 100px;
+    margin: 0;
+    margin-bottom: 40px;
+    
+}
