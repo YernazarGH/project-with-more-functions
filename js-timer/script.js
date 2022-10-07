@@ -50,7 +50,6 @@ window.addEventListener('DOMContentLoaded', function() {
             //     hours.textContent = '0' + t.hours;
             // };
             
-
             if(t.total <= 0) {
                 clearInterval(interval);
                 seconds.textContent = '00';
