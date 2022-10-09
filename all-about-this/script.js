@@ -78,7 +78,7 @@ btn.addEventListener('click', function(){
     console.log(this); // Результат - button
     btn.style.background = 'red'; // меняет цвет кнопки
     function show (){
-        console.log(this);
+        console.log(this); //window
     };
     show();
 });
