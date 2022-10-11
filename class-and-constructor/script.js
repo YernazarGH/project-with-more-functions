@@ -9,7 +9,7 @@ class User {
         this.human = true;
     }
     hello() {
-        console.log(`Hello! ${this.name}`); // вызов переменной при помощий интерполяция в ES6 
+        console.log(`Hello! ${this.name}`);  // вызов переменной при помощий интерполяция в ES6 
     }
     exit() {
         console.log(`Пользователь ${this.name} ушел`)
