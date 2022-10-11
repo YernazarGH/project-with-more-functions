@@ -58,4 +58,28 @@ btn.addEventListener('click', function() {
     show();
 });
 
-// 4 
+// 4 Параметры поумолчанию
+
+function calcOrDouble(a, b = 2) { //ES6
+    // b = b || 2; ES5
+    console.log(a * b);
+};
+
+calcOrDouble(3,5); //15
+calcOrDouble(6); //12
+
+// 5. Классы
+
+class Rectangle {
+    constructor (height, width = 20) {
+        this.height = height;
+        this.width = width;
+    }
+    calcArea () {
+        return this.height * this.width;
+    }
+};
+const square = new Rectangle(10);
+console.log(square.calcArea());
+
+// 6. 
