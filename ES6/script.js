@@ -82,4 +82,21 @@ class Rectangle {
 const square = new Rectangle(10);
 console.log(square.calcArea());
 
-// 6. 
+// 6.  spread операторы или (...)
+
+let video = ['youtube', 'vimeo', 'rutube'],
+    blog = ['wordpress', 'blogger', 'tilda'],
+    internet = [...video, ...blog, 'vk', 'facebook'];
+
+console.log(internet);
+
+function smt(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
+    console.log(a + b + c);
+}
+
+let arr = [2, 5, 7];
+
+smt(...arr); //a=2, b=5, c=7
