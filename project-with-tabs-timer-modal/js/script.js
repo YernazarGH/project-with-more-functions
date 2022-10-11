@@ -117,4 +117,26 @@ window.addEventListener('DOMContentLoaded', function(){
     // }
     
     // showUser.apply(age, ["Горький","Максим"]);
+    class Options {
+        constructor (height, width, bg, fontSize, textAlign) {
+            this.height = height;
+            this.width = width;
+            this.bg = bg;
+            this.fontSize = fontSize;
+            this.textAlign = textAlign;
+        }
+        metod() {
+            document.body.innerHTML = `<div style = width:${this.width}px height:${this.height}px bg:${this.bg} font-size:${this.fontSize}px text-align:${this.textAlign}>something</div>`;
+            //or
+            //let elem = document.createlement('div');
+            //document.body.appendChild(elem);
+            //let param = `width:${this.width}px;height:${this.height}px;bg:${this.bg};font-size:${this.fontSize}px;text-align:${this.textAlign};`;
+            //elem.style.cssText = param;   //cssText в стиль добавить css текст, то есть elem {все что написанно в параметре param}
+        }
+        obj() {
+            new Object();
+        } 
+    }
+    let item = new Options(300, 200, 'red', 20, 'center');
+    item.metod();
 });
