@@ -154,7 +154,7 @@ window.addEventListener('DOMContentLoaded', function(){
     form.addEventListener('submit', function(event) {
         event.preventDefault();
         form.appendChild(statusMessage);
-
+    
         let request = new XMLHttpRequest();
 
         request.open('POST', 'server.php');
@@ -219,4 +219,101 @@ window.addEventListener('DOMContentLoaded', function(){
             input2[i].value = '';
         };
     });
+    // Форма написанная в виде promise
+    // form.addEventListener('submit', function(event) {
+    //     event.preventDefault();
+    //     form.appendChild(statusMessage);
+    //     function promise (){
+        //     return new Promise(resolve, reject){
+        //         let request = new XMLHttpRequest();
+
+            //     request.open('POST', 'server.php');
+            //     request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+    
+            //     let formData = new FormData(form),
+            //         obj = {};
+                
+            //     formData.forEach(function(value, key) {
+            //         obj[key] = value;
+            //     });
+    
+            //     let json = JSON.stringify(obj);
+    
+            //     request.send(json);
+    
+            //     request.addEventListener('readystatechange', function() {
+            //         if(request.readyState < 4){
+            //             resolve();
+            //         }else if (request.readyState === 4 && request.status == 200) {
+            //             resolve();
+            //         }else{
+            //             reject();
+            //         };
+            //     });
+        //      }
+        //    
+    //     };
+
+            // promise();
+            // .then(()=> {statusMessage.innerHTML = message.loading;})
+            // .then(()=> {statusMessage.innerHTML = message.success;})
+            // .catch(()=> {statusMessage.innerHTML = message.failure;})
+    //     
+
+    //     for(let i = 0; i < input.length; i++) {
+    //         input[i].value = '';
+    //     };
+    // });
+
+    
+    // Slider
+
+    let sliderIndex = 0,
+        sliders = document.querySelectorAll('.slider-item'),
+        prev = document.querySelector('.prev'),
+        next = document.querySelector('.next'),
+        dotsWrap = document.querySelector('.slider-dots'),
+        dots = document.querySelectorAll('.dot');
+    
+        ShowSlider();
+    function ShowSlider(n){
+        if(n > sliders.length - 1) {
+            sliderIndex = 0;
+        };
+        if(n < 0) {
+            sliderIndex = sliders.length -1
+        }
+        sliders.forEach((item)=> item.style.display = 'none');
+        dots.forEach((item)=> item.classList.remove('dot-active'));
+
+        sliders[sliderIndex].style.display = 'block';
+        dots[sliderIndex].classList.add('dot-active');
+    
+    }
+
+    function plusSlider (n) {
+        ShowSlider(sliderIndex += n);
+    };
+
+    function CurrentSlider (n) {
+        ShowSlider(sliderIndex = n);
+    };
+
+    prev.addEventListener('click', function(){
+        plusSlider(-1);
+    });
+
+    next.addEventListener('click', function() {
+        plusSlider(1);
+    });
+
+    dotsWrap.addEventListener('click', function(event) {
+        for(let i = 0; i < dots.length; i++){
+            if(event.target.classList.contains('dot') && event.target == dots[i]){
+                CurrentSlider(i);
+            };
+        };
+    });
+
+
 });
