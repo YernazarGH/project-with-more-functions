@@ -117,23 +117,23 @@ window.addEventListener('DOMContentLoaded', function(){
     // }
     
     // showUser.apply(age, ["Горький","Максим"]);
-    class Options {
-        constructor (height, width, bg, fontSize, textAlign) {
-            this.height = height;
-            this.width = width;
-            this.bg = bg;
-            this.fontSize = fontSize;
-            this.textAlign = textAlign;
-        }
-        metod() {
-            let elem = document.createElement('div');
-            document.body.appendChild(elem);
-            let param = `width:${this.width}px;height:${this.height}px;background:${this.bg};font-size:${this.fontSize}px;text-align:${this.textAlign};`;
-            elem.style.cssText = param;   //cssText в стиль добавить css текст, то есть elem {все что написанно в параметре param}
-        }
-    }
-    let item = new Options(300, 200, 'red', 20, 'center');
-    item.metod();
+    // class Options {
+    //     constructor (height, width, bg, fontSize, textAlign) {
+    //         this.height = height;
+    //         this.width = width;
+    //         this.bg = bg;
+    //         this.fontSize = fontSize;
+    //         this.textAlign = textAlign;
+    //     }
+    //     metod() {
+    //         let elem = document.createElement('div');
+    //         document.body.appendChild(elem);
+    //         let param = `width:${this.width}px;height:${this.height}px;background:${this.bg};font-size:${this.fontSize}px;text-align:${this.textAlign};`;
+    //         elem.style.cssText = param;   //cssText в стиль добавить css текст, то есть elem {все что написанно в параметре param}
+    //     }
+    // }
+    // let item = new Options(300, 200, 'red', 20, 'center');
+    // item.metod();
 
     // Post method on form
 
@@ -312,6 +312,50 @@ window.addEventListener('DOMContentLoaded', function(){
             if(event.target.classList.contains('dot') && event.target == dots[i]){
                 CurrentSlider(i);
             };
+        };
+    });
+
+    // Calculator
+
+    let persons = document.querySelectorAll('.counter-block-input')[0],
+        restDays = document.querySelectorAll('.counter-block-input')[1],
+        place = document.getElementById('select'),
+        total = document.getElementById('total'),
+        // опреляем начальные значения наших value
+        personsSum = 0,
+        daysSum = 0,
+        totalValue = 0;
+
+    total.innerHTML = 0;
+
+    persons.addEventListener('input', function() {
+        personsSum = +this.value;
+        totalValue = ((personsSum*3000) + (daysSum*2000));
+
+        if( persons.value == '' || restDays.value == ''){
+            total.innerHTML = 0;
+        } else {
+            total.innerHTML = totalValue;
+        };
+    });
+
+    restDays.addEventListener('input', function() {
+        daysSum = +this.value;
+        totalValue = ((personsSum*3000) + (daysSum*2000));
+
+        if( persons.value == '' || restDays.value == ''){
+            total.innerHTML = 0;
+        } else {
+            total.innerHTML = totalValue;
+        };
+    });
+
+    place.addEventListener('change', function(){
+        if (persons.value == '' || restDays.value == '') {
+            total.innerHTML = 0;
+        } else {
+            let a = totalValue;
+            total.innerHTML = a * this.options[this.selectedIndex].value
         };
     });
 
